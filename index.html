@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureTrack</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            scroll-behavior: smooth;
+        }
+        body{
+            background: #0a0a0a;
+            color: white;
+        }
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #111111;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(255, 121, 0, 0, 2);
+        }
+        .logo{
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff7900;
+        }
+        .nav-links{
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        .nav-links a{
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+        .nav-linksa:hover{
+            color: #ff7900;
+        }
+        .btn-nav{
+            background: #ff7900;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-nav:hover{
+            background: #ff8c1a;
+            transform: translate(-3px);
+        }
+        .hero{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 8%;
+            background: linear-gradient(rgba(0,0,O,O,8), rgba(0,0,0,0,9));
+        }
+        .hero-text h1{
+            font-size: 65px;
+            margin-bottom: 20px;
+        }
+        .hero-text span{
+            color: #ff7900;
+        }
+        .hero-text p{
+            color: #d1d5db;
+            font-size: 20Px;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.8;
+        }
+        .hero-buttons{
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .btn-primary, .btn-secondary{
+            padding: 20px 45px;
+            font-size: 20px;
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-primary{
+            background: #ff7900;
+            color: white;
+        }
+        .btn-secondary{
+            background: transparent;
+            border: 2px solid #ff7900;
+            color: #ff7900;
+        }
+        .btn-primary:hover, .btn-secondary:hover{
+            transform: translateY(-5px);
+        }
+        .services{
+            padding: 100px 8%;
+            text-align: center;
+        }
+        .services h2{
+            font-size: 45px;
+            color: #ff7900;
+            margin-bottom: 60px;
+        }
+        .services-container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+            gap: 30px;
+        }
+        .card{
+            background: #111111;
+            padding: 40px 25px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(255, 121, 0, 0, 2);
+            transition: 0.4s;
+        }
+        .card:hover{
+            transform: translateY(-10px);
+        }
+        .card h3{
+            color: #ff7900;
+            margin-bottom: 15px;
+            font-size: 25px;
+        }
+        .card p{
+            color: #d1d5db;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+        .card button{
+            background: #ff7900;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .card button:hover{
+            background: #ff8c1a;
+        }
+        .about{
+            padding: 100Px 8%;
+            background: #111111;
+            text-align: center;
+        }
+        .about h2{
+            font-size: 45px;
+            color: #ff7900;
+            margin-bottom: 25px;
+        }
+        .about p{
+            color: #d1d5db;
+            max-width: 850px; 
+            margin: auto;
+            line-height: 1.8;
+            font-size: 18px;   
+         }
+        .features{
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px,1px));
+            gap: 25px;
+         }
+        .feature{
+            background: #0a0a0a;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 10Px rgba(255, 121, 0, 0, 2);
+         }
+        .stats{
+            padding: 100Px 8%;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            text-align: center;
+         }
+        .stat-box{
+            background: #111111;
+            padding: 40px;
+            width: 250px;
+            border-radius: 20px;
+            box-shadow:  0 0 15px rgba(255, 121, 0, 0, 2);
+        }
+        .stat-box h3{
+            font-size: 50px;
+            color: #ff7900;
+            margin-bottom: 10px;
+        }
+        .testimonials{
+            padding: 100px 8%;
+            text-align: center;
+        }
+        .testimonials h2{
+            font-size: 45px;
+            color: #ff7900;
+            margin-bottom: 60px;
+        }
+        .testimonials-container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+            gap: 30px;
+        }
+        .testimonial{
+            background: #111111;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow:  0 0 15px rgba(255, 121, 0, 0, 2);
+        }
+        .testimonial p{
+            color: #d1d5db;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .testimonial h4{
+            color: #ff7900;
+        }
+        .contact{
+            padding: 100px 8%;
+            background: #111111;
+            text-align: center;
+        }
+        .contact h2{
+            color: #ff7900;
+            font-size: 45px;
+            margin-bottom: 40px;
+        }
+        form{
+            max-width: 700px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        input, textarea{
+            padding: 18px;
+            border: none;
+            border-radius: 10Px;
+            background: #0a0a0a;
+            color: white;
+            outline: none;
+        }
+        textarea{
+            height: 180px;
+            resize: none;
+        }
+        form button{
+            background: #ff7900;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        form button:hover{
+            background: #ff8c1a;
+        }
+        footer{
+            padding: 50px 8%;
+            text-align: center;
+        }
+        footer h2{
+            color: #ff7900;
+            margin-bottom: 20px;
+            font-size: 35px;
+        }
+        footer p{
+            color: #d1d5db;
+        }
+        .socials{
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .socials a{
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+        .socials a:hover{
+            color: #ff7900;
+        }
+        .copy{
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        @media(max-width: 900Px){
+            .navbar{
+                flex-direction: column;
+                gap: 20px;
+            }
+            .hero-text h1{
+                font-size: 45px;
+            }
+            .hero-text p{
+                font-size: 17px;
+            }
+            .nav-links{
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+ <header>
+    <nav class="navbar">
+        <div class="logo">
+            SecureTrack
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#">Acceuil</a>
+            </li>
+            <li>
+                <a href="#">Services</a>
+            </li>
+            <li>
+                <a href="#">à propos</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+        <button class="btn-nav">
+            Nous contacter
+        </button>
+    </nav>
+ </header>  
+ <section class="hero">
+    <div class="hero-text">
+        <h1>
+            Protégez vos appareils avec 
+            <span>SecureTrack</span>
+        </h1>
+        <p>
+            Grâce à nos traceurs GPS intelligents, retrouvez rapidement vos motos,
+            voitures et téléphones en cas de perte ou vol.
+        </p>
+        <div class="hero-buttons">
+            <button class="btn-primary">
+                Nos services
+            </button>
+            <button class="btn-secondary">
+                Contactez-nous
+            </button>
+        </div>
+    </div>
+ </section>
+ <section class="services">
+    <h2>Nos services</h2>
+    <div class="services-container">
+        <div class="card">
+            <h3>Sécurité Télephone</h3>
+            <p>
+                Localisation rapide des téléphones
+                perdus ou volés grâce à nos systèmes GPS.
+            </p>
+            <button>En savoir plus</button>
+        </div>
+        <div class="card">
+            <h3>Sécurité Moto</h3>
+            <p>
+                Gardez le contrôle total de votre moto
+                avec une technologiede suivie moderne.
+            </p>
+            <button>En savoir plus</button>
+        </div>
+        <div class="card">
+            <h3>Sécurité Voitur</h3>
+            <p>
+                Surveillance GPS intelligente et alertes
+                de sécurité 24h/24 pour vos vehicules.
+            </p>
+            <button>En savoir plus</button>
+        </div>
+    </div>
+ </section>
+</body>
+</html>
